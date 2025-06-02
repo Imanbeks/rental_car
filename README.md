@@ -1,4 +1,4 @@
-![frame_firefox_mac_dark (1)]("Y:\xamp\htdocs\site\car_rental_project-main\images\skrin.png")
+![frame_firefox_mac_dark (1)](images/skrin.png)
 
 <h1 align="center">Car Rental Website Project</h1>  
 
