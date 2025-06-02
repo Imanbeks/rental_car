@@ -1,108 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Статус аренды</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СТАТУС АРЕНДЫ</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(120deg, #1a2980 0%, #26d0ce 100%);
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .status-container {
+            max-width: 480px;
+            margin: 60px auto 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px #b9e1ff50;
+            padding: 42px 30px 38px 30px;
+            position: relative;
+        }
+        .btn-main {
+            background: linear-gradient(90deg,#1976d2 0%,#26d0ce 100%);
+            color: #fff;
+            font-weight: 700;
+            border-radius: 11px;
+            font-size: 1.07rem;
+            padding: 10px 0;
+            margin-bottom: 16px;
+            border: none;
+            transition: background .15s;
+            width: 100%;
+            max-width: 220px;
+        }
+        .btn-main:hover, .btn-main:focus {
+            background: #1976d2;
+            color: #fff;
+        }
+        .username {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.18rem;
+            text-align: right;
+            margin-bottom: 6px;
+        }
+        .status-title {
+            font-size: 1.37rem;
+            font-weight: 800;
+            color: #1a2980;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        .status-label {
+            color: #8cbbe6;
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        .status-value {
+            color: #222;
+            font-size: 1.16rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+        @media (max-width: 540px) {
+            .status-container { padding: 22px 3vw; }
+        }
+    </style>
 </head>
 <body>
-<style>
-
-*{
-    margin: 0;
-    padding: 0;
-
-}
-
-body{
-    background: url("images/carbg2.jpg");
-    background-position: center;
-   
-}
-.box{
-    
-    position:center;    
-    top: 50%;
-    left: 50%;
-    padding: 20px;
-    box-sizing: border-box;
-    background: #fff;
-    border-radius: 4px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
-    background: linear-gradient(to top, rgba(255, 251, 251, 1)70%,rgba(250, 246, 246, 1)90%);
-    display: flex;
-    align-content: center;
-    width: 700px;
-    height: 250px;
-    margin-top: 100px;
-    margin-left: 350px;
-  
-    
-}
-
-
-.box .content{
-    margin-left: 5px;
-    font-size: larger;
-}
-
-.box .button{
-    width: 240px;
-    height: 40px;
-    background: #ff7200;
-    border:none;
-    margin-top: 30px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    color:#fff;
-    transition: 0.4s ease;
-}
-
-.utton{
-    width: 200px;
-    height: 40px;
-   
-    background: #ff7200;
-    border:none;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    color:#fff;
-    transition: 0.4s ease;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-.utton a{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-ul{
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-}
-
-ul li{
-    list-style: none;
-    margin-left: 200px;
-    margin-top: -130px;
-    font-size: 35px;
-
-}
-.name{
-    font-weight: bold;
-}
-
-</style>
-
-
-
 <?php
     require_once('connection.php');
     session_start();
@@ -114,40 +81,43 @@ ul li{
     if($rows==null){
         echo '<script>alert("БРОНИРОВАНИЯ ОТСУТСТВУЮТ")</script>';
         echo '<script> window.location.href = "cardetails.php";</script>';
-    }
-    else{
-    $sql2="select * from users where EMAIL='$email'";
-    $name2 = mysqli_query($con,$sql2);
-    $rows2=mysqli_fetch_assoc($name2);
-    $car_id=$rows['CAR_ID'];
-    $sql3="select * from cars where CAR_ID='$car_id'";
-    $name3 = mysqli_query($con,$sql3);
-    $rows3=mysqli_fetch_assoc($name3);
-
-
-
-
-
+    } else {
+        $sql2="select * from users where EMAIL='$email'";
+        $name2 = mysqli_query($con,$sql2);
+        $rows2=mysqli_fetch_assoc($name2);
+        $car_id=$rows['CAR_ID'];
+        $sql3="select * from cars where CAR_ID='$car_id'";
+        $name3 = mysqli_query($con,$sql3);
+        $rows3=mysqli_fetch_assoc($name3);
 ?>
-   <ul><li> <button  class="utton"><a href="cardetails.php">На Главную</a></button></li><li class="name">ПРИВЕТ! <?php echo $rows2['FNAME']." ".$rows2['LNAME']?></li>
+    <div class="container" style="max-width:600px;">
+        <div class="d-flex justify-content-between align-items-center mt-4 mb-2">
+            <a href="cardetails.php" class="btn btn-main" style="max-width:160px;">На главную</a>
+            <div class="username">Привет, <?php echo $rows2['FNAME']." ".$rows2['LNAME']; ?></div>
+        </div>
+        <div class="status-container mt-2">
+            <div class="status-title">Статус вашей аренды</div>
+            <div class="status-label">Модель авто:</div>
+            <div class="status-value"><?php echo $rows3['CAR_NAME']; ?></div>
 
+            <div class="status-label">Количество дней:</div>
+            <div class="status-value"><?php echo $rows['DURATION']; ?></div>
 
-
-
-</ul>
-    <div class="box">
-         <div class="content">
-             <h1>МОДЕЛЬ АВТО : <?php echo $rows3['CAR_NAME']?></h1><br>
-             <h1>КОЛИЧЕСТВО ДНЕЙ : <?php echo $rows['DURATION']?></h1><br>
-             <h1>СТАТУС АРЕНДЫ : <?php echo $rows['BOOK_STATUS']?></h1><br>
-             
-         </div>
-     </div>
-
-
-
-<?php }
-?>
-    
+            <div class="status-label">Статус аренды:</div>
+            <div class="status-value">
+                <?php
+                    // Красим статус цветом для наглядности:
+                    $status = $rows['BOOK_STATUS'];
+                    if (mb_stripos($status, 'подтверж') !== false || mb_stripos($status, 'выдан') !== false)
+                        echo '<span style="color:#18bb92">'.$status.'</span>';
+                    elseif (mb_stripos($status, 'отмен') !== false)
+                        echo '<span style="color:#ff3e3e">'.$status.'</span>';
+                    else
+                        echo '<span style="color:#ffa700">'.$status.'</span>';
+                ?>
+            </div>
+        </div>
+    </div>
+<?php } ?>
 </body>
 </html>
