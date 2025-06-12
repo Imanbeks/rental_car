@@ -1,0 +1,27 @@
+{
+  "name":"Rishab",
+  "email":"rkc3660@gmail.com",
+  "pass":"RishabxEmpty1",
+  "address":"Fatehpur Lane Near Fast Bite Restro, Jharia, Dhanbad",
+  "role":"admin"
+}
+{
+  "email":"rkc3660@gmail.com",
+  "pass":"RishabxEmpty1"
+}
+
+
+{
+  "heroImg":"https://cdn.filestackcontent.com/VKbpycfxSueuHyUGBx8n",
+  "images":["https://cdn.filestackcontent.com/cHhVUs2vSHGPIo9jjXef","https://cdn.filestackcontent.com/kgKPH5sJSQ2SYIPOA2Wn"],
+  "title":"Nissan GT - R",
+  "description":"NISMO has became the embodient of Nissan's outstanding performance, inspired by the most unforgiving ground, the 'race track'.",
+  "location":"Dhanbad",
+  "listedBy":"6468eb261f631a1c3ee4e00f",
+  "listedDate":"2023-05-20T13:23:45.000+00:00",
+  "rentPrice":"200",
+  "fuelCapacity":"90",
+  "transmission":"Mannual",
+  "capacity":"4",
+  "carType":"Sedan"
+}
