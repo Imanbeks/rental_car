@@ -89,8 +89,8 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`CAR_ID`, `CAR_NAME`, `FUEL_TYPE`, `CAPACITY`, `PRICE`, `CAR_IMG`, `AVAILABLE`) VALUES
-(1, 'FERRAI', 'PETROL', 5, 5000, 'ferrari.jpg', 'Y'),
-(2, 'LAMBORGINI', 'DEISEL', 6, 7000, 'lamborghini.webp', 'Y'),
+(1, 'SONATA', 'GAS', 5, 1500, 'ferrari.jpg', 'Y'),
+(2, 'FIT', 'PETROL', 6, 7000, 'lamborghini.jpg', 'Y'),
 (3, 'PORSCHE', 'GAS', 4, 3000, 'porsche.jpg', 'Y'),
 (20, 'SWIFT', 'DEISEL', 22, 1000, 'IMG-6239c94ea8a4a0.51789849.jpg', 'Y');
 

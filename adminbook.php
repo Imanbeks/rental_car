@@ -1,239 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АДМИН</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ-панель | Бронирования</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(120deg, #163fa3 0%, #10d6ef 100%);
+      color: #0a2540;
+      min-height: 100vh;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: #ffffffcc;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: #156af7;
+    }
+    .menu ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+    .menu ul li a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #17487b;
+      transition: 0.2s;
+    }
+    .menu ul li a:hover {
+      color: #156af7;
+    }
+    .main-header {
+      text-align: center;
+      font-size: 36px;
+      color: #ffffff;
+      margin-top: 40px;
+    }
+    .content-table {
+      width: 95%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .content-table thead {
+      background-color: #156af7;
+      color: white;
+      text-align: left;
+    }
+    .content-table th, .content-table td {
+      padding: 12px 14px;
+      font-size: 14px;
+    }
+    .content-table tbody tr:nth-child(even) {
+      background-color: #f3f9fd;
+    }
+    .content-table tbody tr:hover {
+      background-color: #e1f1ff;
+    }
+    .action-btn {
+      background: #23c16b;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .action-btn:hover {
+      background: #1aa857;
+    }
+    .action-btn a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .return-btn {
+      background: #f57c00;
+    }
+    .return-btn:hover {
+      background: #ef6c00;
+    }
+  </style>
 </head>
 <body>
-
-<style>
-*{
-    margin: 0;
-    padding: 0;
-
-}
-.hai{
-    width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0)50%, rgba(0,0,0,0)50%),url("../images/carbg2.jpg");
-    background-position: center;
-    background-size: cover;
-    height: 109vh;
-    animation: infiniteScrollBg 50s linear infinite;
-}
-.main{
-    width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0)50%, rgba(0,0,0,0)50%);
-    background-position: center;
-    background-size: cover;
-    height: 109vh;
-    animation: infiniteScrollBg 50s linear infinite;
-}
-.navbar{
-    width: 1200px;
-    height: 75px;
-    margin: auto;
-}
-
-.icon{
-    width:200px;
-    float: left;
-    height : 70px;
-}
-
-.logo{
-    color: #ff7200;
-    font-size: 35px;
-    font-family: Arial;
-    padding-left: 20px;
-    float:left;
-    padding-top: 10px;
-
-}
-.menu{
-    width: 400px;
-    float: left;
-    height: 70px;
-
-}
-
-ul{
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-ul li{
-    list-style: none;
-    margin-left: 62px;
-    margin-top: 27px;
-    font-size: 14px;
-
-}
-
-ul li a{
-    text-decoration: none;
-    color: black;
-    font-family: Arial;
-    font-weight: bold;
-    transition: 0.4s ease-in-out;
-
-}
-
-.content-table{
-   border-collapse: collapse;
-    
-    font-size: 1em;
-    /* min-width: 400px; */
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow:0 0  20px rgba(0,0,0,0.15);
-    margin-left : 100px ;
-    margin-top: 25px;
-    width: 1300px;
-    height: 300px;
-}
-.content-table thead tr{
-    background-color: orange;
-    color: white;
-    text-align: left;
-}
-
-.content-table th,
-.content-table td{
-    padding: 12px 15px;
-
-
-}
-
-.content-table tbody tr{
-    border-bottom: 1px solid #dddddd;
-}
-.content-table tbody tr:nth-of-type(even){
-    background-color: #f3f3f3;
-
-}
-.content-table tbody tr:last-of-type{
-    border-bottom: 2px solid orange;
-}
-
-.content-table thead .active-row{
-    font-weight:  bold;
-    color: orange;
-}
-
-
-.header{
-    margin-top: -700px;
-    margin-left: 650px;
-}
-
-
-.nn{
-    width:100px;
-    /* background: #ff7200; */
-    border:none;
-    height: 40px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    color:white;
-    transition: 0.4s ease;
-
-}
-
-
-.nn a{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    
-}
-
-.but a{
-    text-decoration: none;
-    color: black;
-    
-}
-</style>
 <?php
-
 require_once('connection.php');
-$query="SELECT *from booking ORDER BY BOOK_ID DESC";    
-$queryy=mysqli_query($con,$query);
-$num=mysqli_num_rows($queryy);
-
-
+$query = "SELECT * FROM booking ORDER BY BOOK_ID DESC";
+$queryy = mysqli_query($con, $query);
 ?>
-
-<div class="hai">
-        <div class="navbar">
-            <div class="icon">
-                <h2 class="logo">CaRs</h2>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="adminvehicle.php">УПРАВЛЕНИЕ АВТОМОБИЛЯМИ</a></li>
-                    <li><a href="adminusers.php">ПОЛЬЗОВАТЕЛИ</a></li>
-                    <li><a href="admindash.php">ОТЗЫВЫ</a></li>
-                    
-                    <li><a href="adminbook.php">ЗАПРОС НА БРОНИРОВАНИЕ</a></li>
-                  <li> <button class="nn"><a href="index.php">ВЫЙТИ</a></button></li>
-                </ul>
-            </div>
-         </div>
-
-         </div>
-        <div>
-            <h1 class="header">БРОНИРОВАНИЯ</h1>
-            <div>
-                <div>
-                    <table class="content-table">
-                <thead>
-                    <tr>
-                        <th>ID АВТЛ</th>
-                        <th>EMAIL</th>
-                        <th>МЕСТО БРОНИРОВАНИЯ</th>
-                        <th>ДАТА БРОНИРОВАНИЯ</th>
-                        <th>ДЛИТЕЛЬНОСТЬ</th>
-                        <th>НОМЕР ТЕЛЕФОНА</th>
-                        <th>ПУНКТ НАЗНАЧЕНИЯ</th>
-                        <th>ДАТА ВОЗВРАТА</th>
-                        <th>СТАТУС БРОНИРОВАНИЯ</th>
-                        <th>ПОДТВЕРДИТЬ</th>
-                        <th>ВОЗВРАЩЕНО</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                
-                
-                while($res=mysqli_fetch_array($queryy)){
-                
-                
-                ?>
-                <tr  class="active-row">
-                    
-                    <td><?php echo $res['CAR_ID'];?></php></td>
-                    <td><?php echo $res['EMAIL'];?></php></td>
-                    <td><?php echo $res['BOOK_PLACE'];?></php></td>
-                    <td><?php echo $res['BOOK_DATE'];?></php></td>
-                    <td><?php echo $res['DURATION'];?></php></td>
-                    <td><?php echo $res['PHONE_NUMBER'];?></php></td>
-                    <td><?php echo $res['DESTINATION'];?></php></td>
-                    <td><?php echo $res['RETURN_DATE'];?></php></td>
-                    <td><?php echo $res['BOOK_STATUS'];?></php></td>
-                    <td><button type="submit"  class="but"  name="approve"><a href="approve.php?id=<?php echo $res['BOOK_ID']?>">APPROVE</a></button></td>
-                    <td><button type="submit" class="but" name="approve"><a href="adminreturn.php?id=<?php echo $res['CAR_ID']?>&bookid=<?php echo $res['BOOK_ID']?>">RETURNED</a></button></td>
-                </tr>
-               <?php } ?>
-                </tbody>
-                </table>
-                
-                </div>
-            </div>
-        </div>
+<div class="navbar">
+  <div class="logo">CaRs</div>
+  <div class="menu">
+    <ul>
+      <li><a href="adminvehicle.php">Управление авто</a></li>
+      <li><a href="adminusers.php">Пользователи</a></li>
+      <li><a href="admindash.php">Отзывы</a></li>
+      <li><a href="adminbook.php">Бронирования</a></li>
+      <li><a href="index.php">Выход</a></li>
+    </ul>
+  </div>
+</div>
+<h1 class="main-header">Список бронирований</h1>
+<table class="content-table">
+  <thead>
+    <tr>
+      <th>ID авто</th>
+      <th>Email</th>
+      <th>Место</th>
+      <th>Дата брони</th>
+      <th>Длительность</th>
+      <th>Телефон</th>
+      <th>Назначение</th>
+      <th>Дата возврата</th>
+      <th>Статус</th>
+      <th>Подтвердить</th>
+      <th>Возвращено</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php while($res = mysqli_fetch_array($queryy)) { ?>
+    <tr>
+      <td><?php echo $res['CAR_ID']; ?></td>
+      <td><?php echo $res['EMAIL']; ?></td>
+      <td><?php echo $res['BOOK_PLACE']; ?></td>
+      <td><?php echo $res['BOOK_DATE']; ?></td>
+      <td><?php echo $res['DURATION']; ?></td>
+      <td><?php echo $res['PHONE_NUMBER']; ?></td>
+      <td><?php echo $res['DESTINATION']; ?></td>
+      <td><?php echo $res['RETURN_DATE']; ?></td>
+      <td><?php echo $res['BOOK_STATUS']; ?></td>
+      <td>
+        <button class="action-btn">
+          <a href="approve.php?id=<?php echo $res['BOOK_ID']; ?>">Подтвердить</a>
+        </button>
+      </td>
+      <td>
+        <button class="action-btn return-btn">
+          <a href="adminreturn.php?id=<?php echo $res['CAR_ID']; ?>&bookid=<?php echo $res['BOOK_ID']; ?>">Возвращено</a>
+        </button>
+      </td>
+    </tr>
+    <?php } ?>
+  </tbody>
+</table>
 </body>
 </html>

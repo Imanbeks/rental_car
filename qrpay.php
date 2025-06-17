@@ -119,7 +119,7 @@
         <div class="qr-pay-title text-center mb-1">MBANK</div>
         <div class="green-text mb-1 text-center" style="font-size:1.04rem;">Комиссия перевода 0%</div>
         <div class="fs-small mb-3 text-center">
-            Совершите перевод по указанным реквизитам через ваш кошелек в Мбанк до 250 000&nbsp;сом.
+            Совершите перевод по указанным реквизитам через ваш кошелек в Мбанк&nbsp;.
         </div>
         <!-- QR-код -->
         <img class="qr-logo" src="images/qr.png" alt="QR для оплаты">
@@ -136,7 +136,7 @@
         <div class="mb-2">
             <div class="form-label">Имя:</div>
             <div class="copy-row">
-                <span id="accname" style="user-select:all;font-size:1.08rem;">"Стандарт Девелопмент"</span>
+                <span id="accname" style="user-select:all;font-size:1.08rem;">"Сталбеков Иман Сталбекович"</span>
                 <button type="button" class="copy-btn" onclick="copyToClipboard('accname')">Скопировать</button>
             </div>
         </div>

@@ -106,10 +106,10 @@ if(isset($_POST['login'])) {
             </button>
             <div class="collapse navbar-collapse" id="navbars">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
-                    <li class="nav-item"><a class="nav-link" href="#">ГЛАВНАЯ</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#">ГЛАВНАЯ</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus.html">О НАС</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">СЕРВИСЫ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactus.html">КОНТАКТЫ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactus.html">КОНТАКТЫ</a></li> -->
                     <li class="nav-item"><a class="btn btn-outline-primary ms-2" href="adminlogin.php">АДМИН-ВХОД</a></li>
                 </ul>
             </div>

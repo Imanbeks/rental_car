@@ -145,7 +145,7 @@ $cars = mysqli_query($con, $sql2);
             </button>
             <div class="collapse navbar-collapse" id="navbars">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rentalterms.php">Условия аренды</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus2.html">О нас</a></li>
                     <li class="nav-item"><a class="nav-link" href="contactus2.html">Контакты</a></li>
                     <li class="nav-item"><a class="nav-link" href="feedback/Feedbacks.php">Отзывы</a></li>
@@ -174,7 +174,7 @@ $cars = mysqli_query($con, $sql2);
                         <div class="car-name"><?php echo htmlspecialchars($result['CAR_NAME']) ?></div>
                         <div class="car-info">Тип топлива: <b><?php echo htmlspecialchars($result['FUEL_TYPE']) ?></b></div>
                         <div class="car-info">Вместимость: <b><?php echo htmlspecialchars($result['CAPACITY']) ?></b></div>
-                        <div class="car-price">₸<?php echo htmlspecialchars($result['PRICE']) ?>/день</div>
+                        <div class="car-price">KGS <?php echo htmlspecialchars($result['PRICE']) ?>/день</div>
                         <a href="booking.php?id=<?php echo $result['CAR_ID'];?>" class="car-btn">Выбрать</a>
                     </div>
                 </div>
@@ -183,5 +183,46 @@ $cars = mysqli_query($con, $sql2);
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Футер -->
+<footer style="background-color: #122627; color: #fff; padding: 40px 20px;">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Языки и описание -->
+      <div class="col-md-4">
+        <p>
+          <img src="https://flagcdn.com/w40/ru.png" width="20"> Русский<br>
+          <img src="https://flagcdn.com/w40/gb.png" width="20"> English
+        </p>
+        <h5 class="mt-3">О компании</h5>
+        <p style="color: #d0d0d0;">AutoPark — одна из лидирующих компаний на рынке проката автомобилей в Кыргызстане.</p>
+        <!-- Соцсети -->
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="fb"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="whatsapp"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/2111/2111646.png" alt="telegram"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/1384/1384060.png" alt="youtube"></a>
+        </div>
+      </div>
+
+      <!-- Контакты -->
+      <div class="col-md-4">
+        <h5>Контакты</h5>
+        <p>🏢 Турусбекова 109/1, офис 107</p>
+        <p>📞 +996 555 858 585<br>📞 +996 505 858 585</p>
+        <p>✉️ autopark312@gmail.com</p>
+        <p style="color: #d0d0d0;">Все денежные расчёты ведутся в национальной валюте, по актуальному курсу НБКР.</p>
+      </div>
+
+      <!-- Карта -->
+      <div class="col-md-4">
+        <h5>Карта</h5>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.261257602269!2d74.60184907517965!3d42.87866310226956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec8192b158c11%3A0x5e9e84b7be07a94a!2sAutoPark%20-%20Rent%20a%20car%20in%20Kyrgyzstan!5e0!3m2!1sru!2skg!4v1718131700000!5m2!1sru!2skg" 
+          width="100%" height="220" style="border:0; border-radius: 8px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

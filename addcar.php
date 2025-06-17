@@ -1,186 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АДМИН</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Добавить автомобиль | Админ</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(43deg, #1e3c72 0%, #2a5298 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px;
+      color: #fff;
+    }
+
+    .form-wrapper {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px 35px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #ffcc70;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      background-color: #f1f5f9;
+      color: #333;
+    }
+
+    input[type="file"] {
+      background-color: white;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+    }
+
+    .back-btn {
+      margin-bottom: 30px;
+      align-self: flex-start;
+    }
+
+    .back-btn a {
+      text-decoration: none;
+      background: #ffcc70;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #222;
+      transition: background 0.3s;
+    }
+
+    .back-btn a:hover {
+      background: #ffc940;
+    }
+
+    @media (max-width: 540px) {
+      .form-wrapper {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-<style>
-*{
-    margin: 0;
-    padding: 0;
 
-}
-body{
-    background-image: url("../images/regs.jpg");
-    
-    
-    background-size: cover;
-    background-position: center;
-    /* margin-top: 0px; */
-    
-}
-.main{
-    width: 400px;
-    margin: 100px auto 0px auto;
-    margin-top: 30px;
-}
-.btnn{
-    width: 240px;
-    height: 40px;
-    background: #ff7200;
-    border:none;
-    margin-top: 30px;
-    margin-left: 40px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    color:#fff;
-    transition: 0.4s ease;
-}
+  <div class="back-btn">
+    <a href="adminvehicle.php">← Назад</a>
+  </div>
 
-.btnn:hover{
-    background: #fff;
-    color:#ff7200;
-}
+  <div class="form-wrapper">
+    <h2>Добавить новый автомобиль</h2>
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+      <label for="carname">Название автомобиля:</label>
+      <input type="text" id="carname" name="carname" placeholder="Например: Toyota Camry" required />
 
-.btnn a{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
+      <label for="ftype">Тип топлива:</label>
+      <input type="text" id="ftype" name="ftype" placeholder="Бензин / Дизель / Электро" required />
 
-h2{
-    text-align: center;
-    padding: 20px;
-    font-family: sans-serif;
+      <label for="capacity">Вместимость:</label>
+      <input type="number" id="capacity" name="capacity" min="1" placeholder="Введите количество мест" required />
 
-}
-.register{
-    background-color: rgba(0,0,0,0.6);
-    width: 100%;
-    font-size: 18px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
-    color: #fff;
-    margin: auto;
+      <label for="price">Цена за день (KGS):</label>
+      <input type="number" id="price" name="price" min="1" placeholder="Введите стоимость аренды" required />
 
-}
+      <label for="image">Фото автомобиля:</label>
+      <input type="file" id="image" name="image" required />
 
-form#register{
-    margin: 40px;
-    margin-top: 10px;
+      <button type="submit" class="btn" name="addcar">Добавить автомобиль</button>
+    </form>
+  </div>
 
-}
-
-label{
-    font-family: sans-serif;
-    font-size: 18px;
-    font-style: italic;
-}
-
-input#name{
-    width:300px;
-    border:1px solid #ddd;
-    border-radius: 3px;
-    outline: 0;
-    padding: 7px;
-    background-color: #fff;
-    box-shadow:inset 1px 1px 5px rgba(0,0,0,0.3);
-}
-
-
-#back{
-    width: 100px;
-    height: 40px;
-    background: #ff7200;
-    border:none;
-    margin-top: 10px;
-    margin-left: 20px;
-    font-size: 18px;
-   
-
-}
-
-
-#back a{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-
-#fam{
-    color: #ff7200;
-    font-family: 'Times New Roman';
-    font-size: 50px;
-    padding-left: 20px;
-    margin-top:-10px;
-    text-align: center;
-    letter-spacing: 2px;
-    display: inline;
-    margin-left: 250px;
-}
-
-.reg{
-    width: 100%;
-}
-
-
-
-</style>
-
-
-
-
-
-
-<button id="back"><a href="adminvehicle.php">ГЛАВНАЯ</a></button> 
-    
- <div class="main">
-        
-        <div class="register">
-        <h2>Введите данные нового автомобиля<</h2>
-        <form id="register"  action="upload.php" method="POST" enctype="multipart/form-data">    
-            <label>Название авто : </label>
-            <br>
-            <input type ="text" name="carname"
-            id="name" placeholder="Enter Car Name" required>
-            <br><br>
-
-            <label>Тип топлива : </label>
-            <br>
-            <input type ="text" name="ftype"
-            id="name" placeholder="Enter Fuel Type" required>
-            <br><br>
-
-            <label>Вместимость : </label>
-            <br>
-            <input type="number" name="capacity" min="1"
-            id="name" placeholder="Enter Capacity Of Car" required>
-            <br><br>
-            
-            <label>Цена : </label>
-            <br>
-            <input type="number" name="price" min="1"
-            id="name" placeholder="Enter Price Of Car for One Day(in rupees)" required>
-            <br><br>
-
-            <label>Фото Авто : </label>
-            <br>
-            <input type="file" name="image" required>
-           <br><br>
-
-            <input type="submit" class="btnn"  value="ADD CAR" name="addcar">
-            
-        
-        
-        </input>
-            
-        </form>
-        </div> 
-    </div.main>
 </body>
 </html>
